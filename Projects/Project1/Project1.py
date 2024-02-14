@@ -42,14 +42,14 @@ for h in range(N):
     if h==0:
         for i in range(N):
             D[h,i] = float("Inf")
-        D[h,0] = 0
+        D[0,0] = 0
     else:
         D[h,0] = 0
-        print("###########In h =",h)
+        print("--------------In h =",h)
         for i in range(1,N):
             D[h,i] = np.min(G[i]+D[h-1])
             if np.argmin(G[i]+D[h-1]) != i: #not going through your self in min function
                 path[i] = np.argmin(G[i]+D[h-1]) + 1
                 if D[h,i] == float("Inf"):
                     path[i] = -1
-            print("node i =",i+1, "path =",path[i], "D_hi =",D[h,i])
+            print("node i =",i+1, "path =",path[i], "D-hi =",D[h,i],"\\\\")
